@@ -94,8 +94,5 @@ class Version2112 extends Listener
 
             $media->move($new_folder);
         }
-
-        // Delete old company folder
-        File::deleteDirectory(Storage::path($company->id));
     }
 }

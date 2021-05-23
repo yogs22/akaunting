@@ -72,6 +72,8 @@ fabric.properties
 
 /node_modules
 /public/hot
+/public/files
+/public/vendor
 /public/storage
 /public/js
 /public/mix-manifest.json

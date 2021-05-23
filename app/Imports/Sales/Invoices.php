@@ -8,12 +8,10 @@ use App\Imports\Sales\Sheets\InvoiceItemTaxes;
 use App\Imports\Sales\Sheets\InvoiceHistories;
 use App\Imports\Sales\Sheets\InvoiceTotals;
 use App\Imports\Sales\Sheets\InvoiceTransactions;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Maatwebsite\Excel\Concerns\Importable;
-use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithMultipleSheets;
 
-class Invoices implements ShouldQueue, WithChunkReading, WithMultipleSheets
+class Invoices implements WithMultipleSheets
 {
     use Importable;
 
@@ -27,10 +25,5 @@ class Invoices implements ShouldQueue, WithChunkReading, WithMultipleSheets
             'invoice_totals' => new InvoiceTotals(),
             'invoice_transactions' => new InvoiceTransactions(),
         ];
-    }
-
-    public function chunkSize(): int
-    {
-        return 100;
     }
 }
